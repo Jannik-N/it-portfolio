@@ -1,14 +1,20 @@
 const menuButton = document.querySelector('.menu-button');
-const nav = document.querySelector('#nav');
+const nav = document.querySelector('#main-nav');
 menuButton?.addEventListener('click', () => {
-  const opened = menuButton.getAttribute('aria-expanded') === 'true';
-  menuButton.setAttribute('aria-expanded', String(!opened));
-  menuButton.setAttribute('aria-label', opened ? 'Menü öffnen' : 'Menü schließen');
-  nav?.classList.toggle('is-open', !opened);
+  const open = menuButton.getAttribute('aria-expanded') !== 'true';
+  menuButton.setAttribute('aria-expanded', String(open));
+  menuButton.setAttribute('aria-label', open ? 'Menü schließen' : 'Menü öffnen');
+  nav.classList.toggle('is-open', open);
 });
 nav?.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
-  nav.classList.remove('is-open');
   menuButton?.setAttribute('aria-expanded', 'false');
+  menuButton?.setAttribute('aria-label', 'Menü öffnen');
+  nav.classList.remove('is-open');
 }));
-const year = document.querySelector('#year');
-if (year) year.textContent = new Date().getFullYear();
+document.querySelector('#year').textContent = new Date().getFullYear();
+
+// Zuverlässig nach oben scrollen, auch wenn der Header sticky ist.
+document.querySelector('.back-to-top')?.addEventListener('click', () => {
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  window.scrollTo({top: 0, behavior: reduceMotion ? 'instant' : 'smooth'});
+});
