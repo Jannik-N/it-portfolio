@@ -43,3 +43,43 @@ body{background:#f1f4f7}
 @media(max-width:760px){.hero-grid{grid-template-columns:1fr;gap:38px}.hero-visual{max-width:580px;margin:5px 0 0}.terminal-body{font-size:12px;padding:23px 18px}}
 @media(max-width:470px){.terminal-body{font-size:clamp(10px,2.6vw,12px);padding:20px 15px}.terminal-top{padding:0 14px}}
 @media(prefers-reduced-motion:reduce){.skill-card:hover{transform:none}.cursor{animation:none}}
+
+
+/* V9 — optionaler Dark Mode. Ohne data-theme bleibt V8 unverändert. */
+.theme-toggle{display:inline-flex;align-items:center;justify-content:center;gap:9px;flex-shrink:0;margin-left:23px;padding:9px 12px;border:1px solid rgba(132,183,201,.40);border-radius:8px;background:rgba(255,255,255,.035);color:#dce9ef;font-size:12px;font-weight:650;cursor:pointer;transition:background .2s,border-color .2s,color .2s}
+.theme-toggle:hover{background:rgba(92,218,229,.10);border-color:#5cdae5;color:#fff}
+.theme-toggle:focus-visible{outline:3px solid #5cdae5;outline-offset:3px}
+.theme-icon{height:17px;width:17px;flex-shrink:0}
+.sun-icon{display:none}
+:root[data-theme="dark"] .moon-icon{display:none}
+:root[data-theme="dark"] .sun-icon{display:block}
+@media(max-width:1020px){.nav{gap:17px}.theme-toggle{margin-left:14px}}
+@media(max-width:760px){.theme-toggle{margin-left:auto;margin-right:12px}.menu-button{flex-shrink:0}}
+@media(max-width:470px){.theme-toggle{padding:9px;min-width:39px}.theme-toggle-label{display:none}}
+
+:root[data-theme="dark"]{color-scheme:dark;--ink:#e8eef3;--muted:#acbdc8;--line:#324658;--light:#172633}
+:root[data-theme="dark"] body{background:#111e2d;color:var(--ink)}
+:root[data-theme="dark"] .section-light{background:#172633}
+:root[data-theme="dark"] .section-soft{background:#122231}
+:root[data-theme="dark"] .section-contact{background:#182b36}
+:root[data-theme="dark"] .section-kicker{color:#69d7dc}
+:root[data-theme="dark"] h2 em{color:#61d3da}
+:root[data-theme="dark"] .copy-block p,
+:root[data-theme="dark"] .section-head>p,
+:root[data-theme="dark"] .contact-layout p:not(.section-kicker){color:#b5c4d0}
+:root[data-theme="dark"] .about-facts span{color:#adbecd}
+:root[data-theme="dark"] .about-facts strong{color:#edf2f5}
+:root[data-theme="dark"] .skill-card{background:#213244;border-color:#385063;box-shadow:0 7px 25px rgba(0,0,0,.09)}
+:root[data-theme="dark"] .skill-card:hover{border-color:#64bac3;box-shadow:0 13px 32px rgba(0,0,0,.16)}
+:root[data-theme="dark"] .skill-card h3{color:#edf4f6}
+:root[data-theme="dark"] .skill-card p{color:#bacad5}
+:root[data-theme="dark"] .skill-icon{background:#244957;color:#7be1e6}
+:root[data-theme="dark"] .tags span{background:#254856;color:#b2edf0}
+:root[data-theme="dark"] .contact-link{background:#233c49;border-color:#41606c;box-shadow:0 10px 28px rgba(0,0,0,.1)}
+:root[data-theme="dark"] .contact-link strong{color:#ecf4f5}
+:root[data-theme="dark"] .contact-link span:first-child{color:#8fe2e3}
+:root[data-theme="dark"] .contact-arrow{color:#75dce0}
+:root[data-theme="dark"] .section-dark{background:#0c1730}
+:root[data-theme="dark"] .hero{background:linear-gradient(145deg,#101b47,#09132e 72%)}
+:root[data-theme="dark"] .footer{background:#091324}
+@media(prefers-reduced-motion:no-preference){.section-light,.section-soft,.section-contact,.skill-card,.contact-link{transition:background-color .2s ease,color .2s ease,border-color .2s ease}}
